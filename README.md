@@ -1,7 +1,5 @@
 ### Pythonによる因数分解問題生成ツール (Factorization Problem Generator with Python)
 
-[English follows Japanese]
-
 ## 概要
 
 これは**Pythonを用いることにより因数分解の問題を簡単に生成**し，さらに**LaTeXコードに変換**するプロジェクトです．
