@@ -31,43 +31,5 @@
 - 乱数シードを固定していないため，再生成時に特定のプリントを再現することができません．
 
 ## ライセンス
+このプロジェクトは MIT ライセンスのもとで公開されています．詳細は LICENSE ファイルを参照してください．
 
-自由に使用してかまいませんが，それにより及ぼされた責任について，作成者は一切の責任を被らないこととします．
-
----
-
-## Factorization Problem Generator with Python
-
-### Overview
-
-This project generates **factorization problems automatically using Python** and converts them into **LaTeX code** ready for typesetting.
-
-Factorization problems can be created by expanding products of the form $(x+a)(x+b)$, but doing this by hand for dozens of problems is tedious. This tool uses Python to randomly generate two integers in the range $[-9, 9]$, expands the product symbolically with SymPy, and writes the result to `.tex` files via a custom LaTeX conversion function.
-
-### Requirements
-
-This project requires both Python and LaTeX.
-
-- **Python**: version 3.12 or later, with `sympy` installed
-- **LaTeX**: a TeX distribution supporting `lualatex` or `xelatex` (the included setup uses `extarticle`, `enumitem`, and `fontspec`)
-
-Overleaf is not recommended for this project, since uploading many auto-generated files can be inconvenient. A local editor such as VS Code with a LaTeX extension is preferred.
-
-### Usage
-
-1. Run the cells of `expr.ipynb` in Jupyter Notebook (or your preferred environment).
-2. Five files `output1.tex` through `output5.tex` will be generated in the working directory.
-3. Compile a main `.tex` document that loads these files via `\input{...}` using `lualatex` (or `xelatex`).
-4. The resulting PDF contains five worksheets, each with 14 factorization problems arranged in two columns.
-
-Integers are sampled from $[-9, 9]$ and five files are produced by default. Both parameters can be adjusted by editing the corresponding lines in the notebook.
-
-### Known Limitations
-
-- Trivial or degenerate cases such as $(x+0)(x+1)$ or $(x+3)(x+3)$ are excluded, but **duplicate expansions** such as $(x+2)(x+7)$ and $(x+7)(x+2)$ may still appear within the same worksheet.
-- Since integers are sampled uniformly at random, **the difficulty of problems is not controlled**, and problem sets may vary considerably in difficulty.
-- The random seed is not fixed, so a specific worksheet cannot be reproduced after regeneration.
-
-### License
-
-You are free to use, modify, and redistribute this project. The author assumes no responsibility for any consequences arising from its use.
